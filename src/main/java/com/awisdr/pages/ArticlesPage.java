@@ -27,6 +27,12 @@ public class ArticlesPage extends ActionEngine {
 	WebElement view;
 	@FindBy(id = "articleHeading")
 	WebElement articleTitle;
+	
+	
+	@FindBy(xpath = "//*[@id=\"smoothmenu1\"]/ul/li[1]/ul/li/a")
+	List<WebElement> pressReleaseStatusList;
+	
+	
 
 	public ArticlesPage() {
 		PageFactory.initElements(driver, this);
@@ -89,5 +95,26 @@ public class ArticlesPage extends ActionEngine {
 //		driver.findElement(By.xpath("//tr[@class='gridrow']/td[" + position + "]")).getText();
 
 	}
-
+	
+	public void verifyStatusList() {
+		
+		
+		    List<WebElement> buttons = driver.findElements(By.xpath("//*[@id=\"smoothmenu1\"]/ul/li[1]/ul/li/a"));
+		    
+		    System.out.println("List size is: " + buttons.size());
+		    if (buttons.size() > 0) {
+		    WaitFor(400);
+	        for (WebElement webElement : buttons) {
+	            String name = webElement.getText();
+	            System.out.println(name);
+	            test.log(Status.PASS, name);
+			} }else {
+				test.log(Status.PASS, "Verified " + "Statuses of PR's : " );
+			}
+	            		 
+	
+	}
+			
+	
+	
 }

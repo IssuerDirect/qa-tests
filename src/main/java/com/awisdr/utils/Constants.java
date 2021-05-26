@@ -17,5 +17,9 @@ public class Constants {
 	public static final int EXPLICIT_WAIT_TIME=60;
 	
 	public static final String SCREENSHOT_FILEPATH=System.getProperty("user.dir")+"/target/screenshots/";
+	
+	public static final String IMAGE_FILEPATH=System.getProperty("user.dir") + "\\TestData\\icon_2.png";
+	public static final String INPUTDATA_FILEPATH=System.getProperty("user.dir") + "\\TestData\\InputTextFile.txt";
+	
 
 }

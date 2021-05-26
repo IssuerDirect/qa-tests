@@ -248,6 +248,28 @@ public class ActionEngine extends PageInitializer {
 		WaitFor(5000);
 
 	}
+	public static void pasteDataUsingRobotAndEnter(String textToCopy) {
+
+//		String text = "Hello World";
+		WaitFor(5000);
+		StringSelection stringSelection = new StringSelection(textToCopy);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, stringSelection);
+		try {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			robot.delay(1500);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		WaitFor(5000);
+
+	}
 
 	public static String getText(WebElement element, String elementName) {
 		String gettxt = "";
