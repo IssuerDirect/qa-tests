@@ -6,20 +6,20 @@
 		<listener class-name="com.awisdr.utils.Listeners" />
 	</listeners>
 
-	<test thread-count="1" name="Admin Test Cases">
+	 <!--  <test thread-count="1" name="Admin Test Cases">
 		<parameter name="browserName" value="chrome" />
 		<parameter name="ApplicationType" value="admin" />
 		<groups>
 			<run>
-				<include name="verifyAdminApplicationLoginFunctionality" />
+				<include name="VerifyAdminApplicationPressReleasesStatusBarFunctionality" />
 			</run>
 		</groups>
 		<packages>
 			<package name="com.awisdr.testcases" />
 		</packages>
-	</test>
+	</test>  -->
 
-	<!-- <test thread-count="1" name="Client Test Cases">
+	 <!--   <test thread-count="1" name="Client Test Cases">
 		<parameter name="browserName" value="chrome" />
 		<parameter name="ApplicationType" value="client" />
 		<groups>
@@ -30,7 +30,22 @@
 		<packages>
 			<package name="com.awisdr.testcases" />
 		</packages>
-	</test> -->
-
+	</test>  -->
+ 
+ 
+  <test thread-count="1" name="Client Test Cases">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="ApplicationType" value="client" />
+		<groups>
+			<run>
+				<include name="VerifyPressReleaseCreationFunctionality" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.awisdr.testcases" />
+				</packages>
+		
+	</test>  
+ 
 
 </suite> 
