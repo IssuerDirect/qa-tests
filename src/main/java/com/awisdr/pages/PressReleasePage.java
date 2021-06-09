@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.TimeZone;
 
 import javax.imageio.stream.FileCacheImageOutputStream;
@@ -145,9 +146,16 @@ public class PressReleasePage extends ActionEngine {
 	WebElement phnTextBox;
 	@FindBy(xpath = "//*[@type='button' and @class='btn btn-warning rounded-pill text-nowrap pl-sm-3 pr-sm-3']")
 	WebElement submitWithCollaboration;
+	@FindBy(xpath = "//div[text()='Press Release Id']//following-sibling::div")
+	WebElement releaseid;
+	@FindBy(xpath = "//a[@href='/dashboard']//parent::li")
+	WebElement dashboardLnk;
+	@FindBy(xpath = "//img[@src='/ngassets/images/editorial%20review.png']")
+	WebElement editorialReview;
+	@FindBy(xpath = "/html/body/app-root/app-dashboard-layout/div/div[2]/div[2]/app-dashboard/div[2]/div/div[1]/div/div[2]/div[2]/a")
+	WebElement clickonCreatedPR;
 	
-	
-	
+
 	
 	
 	public PressReleasePage() {
@@ -165,7 +173,8 @@ public class PressReleasePage extends ActionEngine {
 	}
 
 	public void enterHeadLine() {
-		sendText(headLine, "testSreeAutomation");
+		waitForClickability(headLine);
+		sendText(headLine, "TestReleaseAutomation");
 	}
 
 	public void insertImage() throws AWTException {
@@ -395,7 +404,7 @@ public class PressReleasePage extends ActionEngine {
 		WaitFor(2000);
 		jsClick(insertImage, "InsertImage");
 		WaitFor(2000);
-		StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\TestData\\icon_2.png");
+		StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\TestData\\cloud-ice-cream.jpg");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 		// imitate mouse events like ENTER, CTRL+C, CTRL+V
@@ -419,12 +428,11 @@ public class PressReleasePage extends ActionEngine {
 		jsClick(insertTable, "Insert Table1");
 		jsClick(numberOfColumns, "Number of columns");
 		WaitFor(2000);
-		SendTextUsingJSInnerText(firstRow, TextUtils.generateRandomString(5, Mode.ALPHANUMARIC), "First Row");
-		SendTextUsingJSInnerText(secondRow,TextUtils.generateRandomString(5, Mode.ALPHANUMARIC), "Second Row");
+		SendTextUsingJSInnerText(firstRow, "FirstRowFirstColumn ", "First Row");
+		SendTextUsingJSInnerText(secondRow,"FirstRowSecondColumn ", "Second Row");
+		SendTextUsingJSInnerText(thirdRow, "SecondRowFirstColumn   ", "Third Row"); 
+		SendTextUsingJSInnerText(fourthRow,"SecondRowSecondColumn ", "fourth Row");
 		/*
-		 * SendTextUsingJSInnerText(thirdRow, TextUtils.generateRandomString(5,
-		 * Mode.ALPHANUMARIC), "Third Row"); SendTextUsingJSInnerText(fourthRow,
-		 * TextUtils.generateRandomString(5, Mode.ALPHANUMARIC), "fourth Row");
 		 * SendTextUsingJSInnerText(fifthRow, TextUtils.generateRandomString(5,
 		 * Mode.ALPHANUMARIC), "Fifth Row"); SendTextUsingJSInnerText(sixthRow,
 		 * TextUtils.generateRandomString(5, Mode.ALPHANUMARIC), "6th Row");
@@ -449,10 +457,9 @@ public void selectdate() {
 	System.out.println(tomorrowAsString);
 	WaitFor(1500);
 	calenderIcon.click();
-	WaitFor(2500);
 	scheduledate.click();
 	enterdate.clear();
-	WaitFor(2500);
+	WaitFor(1500);
 	enterdate.sendKeys(tomorrowAsString);
 	WaitFor(2500);
 }
@@ -482,9 +489,29 @@ public void selectdate() {
 		jsClick(submitToEditorialbtn, "Submit to editorial team button");
 		waitForClickability(submitWithCollaboration);
 		jsClick(submitWithCollaboration, "submitWithCollaboration");
+		WaitFor(1200);
+		releaseid.getText();
+		getText(releaseid,"Release ID is");
+		WaitFor(1200);
+		dashboardLnk.click();
+		WaitFor(1200);
+		waitForClickability(editorialReview);
+		Actions actions = new Actions(driver);
+		actions.click(editorialReview).perform();
+		//jsClick(editorialReview, "Editorial Review button");
+		WaitFor(1200);
+		jsClick(clickonCreatedPR, "Click On created PR");
+		WaitFor(1200);
+		 ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+		    driver.switchTo().window(newTab.get(1));
+		
 		
 		
 		}
-	}
+		
+		
+		
+		}
+	
 
 

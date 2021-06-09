@@ -51,7 +51,7 @@ public class LoginPage extends ActionEngine {
 	}
 
 	public void validateClientLoginScreen() {
-		waitForPageToLoad(3000);
+		waitForPageToLoad(300);
 		isDisplayed(cmplogo, "Company Logo Link");
 		isDisplayed(productlnk, "Product Link");
 		isDisplayed(aboutlnk, "About Link");
