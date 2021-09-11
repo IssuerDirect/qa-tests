@@ -1,12 +1,15 @@
 package com.awisdr.utils;
-
+import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 public class Constants {
 
 	public static final String CONFIGURATION_FILEPATH=System.getProperty("user.dir")+"/src/main/resources/configs/configuration.properties";
 	
 	public static final String TESTDATA_FILEPATH=System.getProperty("user.dir")+"/TestData/InputTestData.xlsx";
 	
-	public static final String CHROMEDRIVER_PATH=System.getProperty("user.dir")+"/Drivers/chromedriver.exe";
+	//public static final String CHROMEDRIVER_PATH=System.getProperty("user.dir")+"/Drivers/chromedriver.exe";
+	public static final String CHROMEDRIVER_PATH=System.getProperty("user.dir")+"\\NewDrivers\\chromedriver.exe";
+	
 	
 	public static final String GECKODRIVER_PATH=System.getProperty("user.dir")+"/Drivers/geckodriver";
 	
@@ -21,5 +24,14 @@ public class Constants {
 	public static final String IMAGE_FILEPATH=System.getProperty("user.dir") + "\\TestData\\icon_2.png";
 	public static final String INPUTDATA_FILEPATH=System.getProperty("user.dir") + "\\TestData\\InputTextFile.txt";
 	
+	public static final int HIGHVAL = 5000;
+	public static final int MEDVAL = 3000;
+	public static final int LOWVAL = 1000;
+	public static final SoftAssert softAssert = new SoftAssert();
+	public static Boolean bStatus=false;
+	public static final String strPath = "src//test//resources//IP_OR_Original.xlsx";
+	public static final String strTabNameBAM = "BAM";
 
+	public static WebDriver driver;
+	
 }
