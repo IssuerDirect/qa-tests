@@ -35,7 +35,7 @@ public class LoginPage extends ActionEngine {
 	@FindBy(xpath = "//div[@class='col-12']/button[contains(text(),'Login')]")
 	WebElement clientLoginBtn;
 
-	@FindBy(xpath = "//a[contains(text(),'Log out')]")
+	@FindBy(xpath = "//div[contains(text(),'Log Out')]")
 	WebElement logout;
 	@FindBy(xpath = "//input[contains(@id,'_email')]")
 	WebElement adminEmailTxtBx;
@@ -45,6 +45,9 @@ public class LoginPage extends ActionEngine {
 	WebElement adminLoginButton;
 	@FindBy(xpath = "//h4[contains(text(),'Administration Login')]")
 	WebElement adminLoginPage;
+	@FindBy(xpath = "//div[@class='mat-menu-trigger username cursor-pointer ml-2']")
+	WebElement linkforLogout;
+	
 
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
@@ -68,6 +71,11 @@ public class LoginPage extends ActionEngine {
 
 	public void verifyApplicationLogoutLink() {
 		isDisplayed(logout, "Logout Link");
+	}
+	public void applicationLogoutLink() {
+		click(linkforLogout, "Logout Button");
+		isDisplayed(logout, "Logout Link");
+		click(logout, "Logout Button");
 	}
 
 	public void verifyAdminLoginPage() {
