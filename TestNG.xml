@@ -6,6 +6,8 @@
   <parameter name="ApplicationType" value="client" />
     <classes>
       <class name="com.awisdr.testcases.VerifyBrandAssetsManagerFunctionality"/>
+       <class name="com.awisdr.testcases.VerifyClientApplicationLoginFunctionality"/>
+       <class name="com.awisdr.testcases.VerifyPressReleaseCreationFunctionality"/>
        
     </classes>
   </test> <!-- Test -->

@@ -73,7 +73,7 @@ public class VerifyPressReleaseCreationFunctionality extends ActionEngine {
 
 	}
 	@AfterMethod(alwaysRun = true)
-	public void tearDown() {
+	public void tearDown() throws IOException {
 		if (driver != null) {
 			driver.quit();
 			 Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");

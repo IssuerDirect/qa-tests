@@ -163,49 +163,29 @@ public class CommonMethods extends PageInitializer {
 	 * Feature : generic   
 	 * @Description: This method verifies buttons Active/Presence status
 	   Ex: verifyButtonStatus(String strTabName, String strObjName, String strFilePath, String strSheetName) */
-	public Boolean verifyButtonStatus(String strTabName, String strFilePath, String strSheetName, String objName) throws IOException, FilloException
-	{
-		Boolean bStatus = false;
-		try{
-			List<WebElement> object = sDataRead.getObjNewMethod(strTabName, objName, strFilePath, strSheetName);
-			if(object.get(0).isDisplayed()==true)
-			{
-				bStatus= true;
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception occured in verifyButtonStatus method due to : " + e.toString());
-		}
-		return bStatus;
-	}
+	/*
+	 * public Boolean verifyButtonStatus(String strTabName, String strFilePath,
+	 * String strSheetName, String objName) throws IOException, FilloException {
+	 * Boolean bStatus = false; try{ if(object.get(0).isDisplayed()==true) {
+	 * bStatus= true; } } catch(Exception e) {
+	 * System.out.println("Exception occured in verifyButtonStatus method due to : "
+	 * + e.toString()); } return bStatus; }
+	 */
 	
 	/* @Author: SreeGuntaka
 	 * Feature : Generic 
 	 * @Description: This method handles alers which requires confirmation after clicking button/save/after submitting data in some windows
 	   Ex: handleAlerts(String strTabName,String strObjectName,String strFilePath,String strSheetName) */
-	public static Boolean handleAlerts(String strTabName,String strObjectName, String strFilePath,String strSheetName) throws IOException, FilloException, InterruptedException{
-		Boolean bStatus = false;
-		try{
-			Thread.sleep(Constants.LOWVAL);
-			List<WebElement> objGetObject = FindElements.getObjNewMethod(strTabName, strObjectName, strFilePath, strSheetName);
-			if(objGetObject.get(0).isDisplayed()==true)
-			{
-				objGetObject.get(0).click();
-				Thread.sleep(Constants.LOWVAL);
-				bStatus=true;
-			}
-			else if(objGetObject.get(0)==null)
-			{
-				System.out.println("Alert is not present");
-			}
-		}
-		catch(NoSuchElementException e)
-		{
-			System.out.println("Following exception got handleAlerts method: "+e.getMessage());
-		}
-		return bStatus;
-	}
-	
+	/*
+	 * public static Boolean handleAlerts(String strTabName,String strObjectName,
+	 * String strFilePath,String strSheetName) throws IOException, FilloException,
+	 * InterruptedException{ Boolean bStatus = false; try{
+	 * Thread.sleep(Constants.LOWVAL); if(objGetObject.get(0).isDisplayed()==true) {
+	 * objGetObject.get(0).click(); Thread.sleep(Constants.LOWVAL); bStatus=true; }
+	 * else if(objGetObject.get(0)==null) {
+	 * System.out.println("Alert is not present"); } } catch(NoSuchElementException
+	 * e) { System.out.println("Following exception got handleAlerts method: "+e.
+	 * getMessage()); } return bStatus; }
+	 */
 	
 }
