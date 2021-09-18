@@ -1,34 +1,16 @@
 package com.awisdr.pages;
 
-import com.awisdr.utils.Constants;
-import com.awisdr.utils.FindElements;
-import com.awisdr.utils.ObjectRepositoryTestData;
-import com.awisdr.testbase.ActionEngine;
-import com.awisdr.utils.CommonMethods;
-import java.awt.Robot;
-import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.awisdr.testbase.ActionEngine;
+import com.awisdr.utils.CommonMethods;
+import com.awisdr.utils.Constants;
 import com.codoid.products.exception.FilloException;
 
 public class BrandAssetsManagerPage extends ActionEngine {
@@ -38,7 +20,6 @@ public class BrandAssetsManagerPage extends ActionEngine {
 		PageFactory.initElements(driver, this);
 	}
 
-	FindElements sDataRead = new FindElements(driver);
 	CommonMethods cmnMethods = new CommonMethods(driver);
 	@FindBy(xpath = "//ul[@class='w-list-unstyled']/li[5]")
 	WebElement brandAssetsManagerLnk;

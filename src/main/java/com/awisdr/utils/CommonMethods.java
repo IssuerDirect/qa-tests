@@ -37,7 +37,6 @@ import org.openqa.selenium.WebElement;
 import com.codoid.products.exception.FilloException;
 
 public class CommonMethods extends PageInitializer {
-	FindElements sDataRead = new FindElements(driver);
 	 public static WebDriver driver = null;
 	  public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 	  public CommonMethods(WebDriver driver) {

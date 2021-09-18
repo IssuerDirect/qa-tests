@@ -323,4 +323,7 @@ public class ActionEngine extends PageInitializer {
 			}
 		}
 	}
+	public void closeAllBrowsers() throws IOException {
+	    Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+	  }
 }

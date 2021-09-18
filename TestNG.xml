@@ -1,51 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Accesswire Suite" parallel="tests">
-
-	<listeners>
-		<listener class-name="com.awisdr.utils.Listeners" />
-	</listeners>
-
-	 <!--  <test thread-count="1" name="Admin Test Cases">
-		<parameter name="browserName" value="chrome" />
-		<parameter name="ApplicationType" value="admin" />
-		<groups>
-			<run>
-				<include name="VerifyAdminApplicationPressReleasesStatusBarFunctionality" />
-			</run>
-		</groups>
-		<packages>
-			<package name="com.awisdr.testcases" />
-		</packages>
-	</test>  -->
-
-	 <!--   <test thread-count="1" name="Client Test Cases">
-		<parameter name="browserName" value="chrome" />
-		<parameter name="ApplicationType" value="client" />
-		<groups>
-			<run>
-				<include name="verifyClientApplicationLoginFunctionality" />
-			</run>
-		</groups>
-		<packages>
-			<package name="com.awisdr.testcases" />
-		</packages>
-	</test>  -->
- 
- 
-  <test thread-count="1" name="Client Test Cases">
-		<parameter name="browserName" value="chrome" />
-		<parameter name="ApplicationType" value="client" />
-		<groups>
-			<run>
-				<include name="VerifyPressReleaseCreationFunctionality" />
-			</run>
-		</groups>
-		<packages>
-			<package name="com.awisdr.testcases" />
-				</packages>
-		
-	</test>  
- 
-
-</suite> 
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+  <parameter name="browserName" value="chrome" />
+  <parameter name="ApplicationType" value="client" />
+    <classes>
+      <class name="com.awisdr.testcases.VerifyBrandAssetsManagerFunctionality"/>
+       
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

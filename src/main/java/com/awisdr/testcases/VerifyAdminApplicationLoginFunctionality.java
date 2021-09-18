@@ -7,7 +7,7 @@ import com.awisdr.utils.ConfigsReader;
 
 public class VerifyAdminApplicationLoginFunctionality extends ActionEngine {
 
-	@Test(groups = { "smoke", "verifyAdminApplicationLoginFunctionality" })
+//	@Test(groups = { "c", "verifyAdminApplicationLoginFunctionality" })
 	public void verifyAdminApplicationLoginFunctionality() {
 		login.verifyAdminLoginPage();
 		login.loginToAdminApplication(ConfigsReader.getPropValue("adminEmail"),
