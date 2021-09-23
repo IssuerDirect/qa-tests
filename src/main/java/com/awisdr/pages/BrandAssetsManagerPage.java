@@ -31,7 +31,13 @@ public class BrandAssetsManagerPage extends ActionEngine {
 	WebElement categoryDropdown;
 	@FindBy(xpath = "//button[text()=' Upload Files ']")
 	WebElement uploadFiles;
-
+	@FindBy(xpath = "//i[@title='Edit']")
+	WebElement editFile;
+	@FindBy(xpath = "//button[@class='btn edit-remove-button']")
+	WebElement removeFile;
+	@FindBy(xpath = "//button[contains(text(),' Remove ')]")
+	WebElement removeBtn;
+	
 	/*
 	 * @Author: SreeGuntaka 
 	 * Feature : Brand Assets Manager
@@ -63,6 +69,15 @@ public class BrandAssetsManagerPage extends ActionEngine {
 			waitForClickability(uploadFiles);
 			click(uploadFiles, "uploadedFiles");
 			Thread.sleep(Constants.MEDVAL);
+			waitForClickability(editFile);
+			click(editFile, "editUploadedFile");
+			Thread.sleep(Constants.MEDVAL);
+			waitForClickability(removeFile);
+			click(removeFile, "removeUploadedFile");
+			Thread.sleep(Constants.MEDVAL);
+			waitForClickability(removeBtn);
+			click(removeBtn, "removeUploadedFile");
+			Thread.sleep(Constants.HIGHVAL);
 			System.out.println("In Upload dcoument module file has been set and clicked on upload button");
 
 		} catch (Exception e) {
